@@ -10,7 +10,7 @@ import { SandwichInput } from './SandwichInput';
 import { validate } from '../lib/validate';
 
 let PrimaryMenuForm = (props) => {
-  const { hasTypeValue, handleSubmit } = props;
+  const { hasTypeValue, handleSubmit, pristine, reset, submitting } = props;
 
   return (
     <form onSubmit={handleSubmit}>
@@ -27,7 +27,14 @@ let PrimaryMenuForm = (props) => {
         (hasTypeValue === 'soup' && <SoupInput />) ||
         (hasTypeValue === 'sandwich' && <SandwichInput />)
       )}
-      <button type='submit'>Submit</button>
+      <div>
+        <button type='submit' disabled={submitting}>
+          Submit
+        </button>
+        <button type='button' disabled={pristine || submitting} onClick={reset}>
+          Clear Values
+        </button>
+      </div>
     </form>
   );
 };

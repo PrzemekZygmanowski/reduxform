@@ -1,23 +1,31 @@
 import React from 'react';
 import PrimaryMenuForm from '../components/PrimaryMenuForm';
-import { axios } from 'axios';
+import { SubmissionError } from 'redux-form';
 
 export const MenuForm = () => {
   const postValues = async (data) => {
     const endpoint = 'https://jsonplaceholder.typicode.com/posts';
 
-    const postFormValues = await axios.post(endpoint, data);
-
-    if (postFormValues.status === 200 && postFormValues.data) {
-      console.log(`udalo sie wyslac: ${postFormValues.data}`);
-      return postFormValues.data;
-    } else {
-      console.log('values can not be post');
-    }
+    const options = {
+      method: 'POST',
+      body: JSON.stringify(data),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    };
+    fetch(endpoint, options)
+      .then((res) => res.json())
+      .then((res) => console.log(res))
+      .catch((error) => {
+        if (error.validationErrors) {
+          throw new SubmissionError(error.validationErrors);
+        } else {
+          console.log(error);
+        }
+      });
   };
 
   const handleSubmit = (values) => {
-    console.log(values);
     postValues(values);
   };
 
