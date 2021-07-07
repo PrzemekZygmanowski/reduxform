@@ -7,9 +7,11 @@ import { TypeInput } from './TypeInput';
 import { PizzaInput } from './PizzaInput';
 import { SoupInput } from './SoupInput';
 import { SandwichInput } from './SandwichInput';
+import { validate } from '../lib/validate';
 
 let PrimaryMenuForm = (props) => {
   const { hasTypeValue, handleSubmit } = props;
+
   return (
     <form onSubmit={handleSubmit}>
       <h1>Menu Form</h1>
@@ -32,6 +34,7 @@ let PrimaryMenuForm = (props) => {
 
 PrimaryMenuForm = reduxForm({
   form: 'menuForm',
+  validate,
 })(PrimaryMenuForm);
 
 const selector = formValueSelector('menuForm');

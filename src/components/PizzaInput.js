@@ -1,32 +1,27 @@
 import React from 'react';
 import { Field } from 'redux-form';
+import { renderField } from '../lib/renderField';
 
 export const PizzaInput = () => {
   return (
     <>
-      <div>
-        <label htmlFor='no_of_slices'>Number of slices</label>
-        <Field
-          name='no_of_slices'
-          component='input'
-          type='number'
-          min='0'
-          max='10'
-          step='1'
-        />
-      </div>
-      <div>
-        <label htmlFor='diameter'>Diameter in cm</label>
-        <Field
-          name='diameter'
-          component='input'
-          type='number'
-          min='20'
-          max='60'
-          step='5'
-          placeholder='20-60 cm'
-        />
-      </div>
+      <Field
+        name='no_of_slices'
+        component={renderField}
+        label='Number of slices'
+        type='number'
+        min='0'
+        step='1'
+      />
+      <Field
+        name='diameter'
+        component={renderField}
+        label='diameter'
+        type='number'
+        min='20'
+        step='5'
+        placeholder='20-60 cm'
+      />
     </>
   );
 };

@@ -1,18 +1,16 @@
 import React from 'react';
 import { Field } from 'redux-form';
+import { renderField } from '../lib/renderField';
 
 export const SandwichInput = () => {
   return (
-    <div>
-      <label htmlFor='slices_of_bread'>Slices of bread</label>
-      <Field
-        name='slices_of_bread'
-        component='input'
-        type='number'
-        min='0'
-        max='4'
-        step='1'
-      />
-    </div>
+    <Field
+      name='slices_of_bread'
+      component={renderField}
+      label='Slices of bread'
+      type='number'
+      min='0'
+      step='1'
+    />
   );
 };
