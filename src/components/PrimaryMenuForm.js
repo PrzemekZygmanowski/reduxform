@@ -8,12 +8,14 @@ import { PizzaInput } from './PizzaInput';
 import { SoupInput } from './SoupInput';
 import { SandwichInput } from './SandwichInput';
 import { validate } from '../lib/validate';
+import '../css/Button.css';
+import '../css/Form.css';
 
 let PrimaryMenuForm = (props) => {
   const { hasTypeValue, handleSubmit, pristine, reset, submitting } = props;
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form className='menu_form' onSubmit={handleSubmit}>
       <h1>Menu Form</h1>
       <h2>Primary Fields</h2>
       <NameInput />
@@ -21,17 +23,22 @@ let PrimaryMenuForm = (props) => {
       <TypeInput />
       <h2>Additional Fields</h2>
       {!hasTypeValue ? (
-        <h2>Please, choose the meal type</h2>
+        <h3>Please, choose the meal type</h3>
       ) : (
         (hasTypeValue === 'pizza' && <PizzaInput />) ||
         (hasTypeValue === 'soup' && <SoupInput />) ||
         (hasTypeValue === 'sandwich' && <SandwichInput />)
       )}
-      <div>
-        <button type='submit' disabled={submitting}>
+      <div className='btn_wrapper'>
+        <button className='btn primary_btn' type='submit' disabled={submitting}>
           Submit
         </button>
-        <button type='button' disabled={pristine || submitting} onClick={reset}>
+        <button
+          className='btn secondary_btn'
+          type='button'
+          disabled={pristine || submitting}
+          onClick={reset}
+        >
           Clear Values
         </button>
       </div>

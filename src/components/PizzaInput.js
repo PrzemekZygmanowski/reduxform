@@ -16,7 +16,7 @@ export const PizzaInput = () => {
       <Field
         name='diameter'
         component={renderField}
-        label='diameter'
+        label='Diameter'
         type='number'
         min='20'
         step='5'

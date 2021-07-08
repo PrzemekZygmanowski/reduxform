@@ -1,0 +1,32 @@
+:root {
+  --firstColor: rgba(250, 255, 250, 1);
+  --secondColor: #212121;
+  --thirdColor: #5cdaff;
+}
+
+.btn_wrapper {
+  margin: 20px auto;
+}
+.btn {
+  cursor: pointer;
+  width: 100px;
+  margin: 0 20px;
+  padding: 5px;
+  border: 1px solid var(--secondColor);
+  border-radius: 2px;
+  transition: 0.1s ease-in-out;
+}
+
+.primary_btn {
+  background-color: var(--secondColor);
+  color: var(--thirdColor);
+}
+
+.secondary_btn {
+  background-color: var(--firstColor);
+  color: var(--secondColor);
+}
+
+.btn:hover {
+  transform: scale(1.05);
+}

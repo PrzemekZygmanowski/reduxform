@@ -1,0 +1,61 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --firstColor: rgba(250, 255, 250, 1);
+  --secondColor: #212121;
+  --thirdColor: #5cdaff;
+}
+body {
+  background-color: var(--firstColor);
+  color: var(--secondColor);
+}
+
+h1 {
+  font-family: 'Saira', sans-serif;
+  font-weight: 700;
+}
+
+h2 {
+  font-family: 'Saira Condensed', sans-serif;
+  font-weight: 500;
+}
+
+h1,
+h2 {
+  font-size: 18px;
+  text-transform: uppercase;
+  line-height: 20px;
+  letter-spacing: 1.5px;
+  margin: 10px auto;
+}
+
+h3 {
+  font-family: 'Saira Condensed', sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  letter-spacing: 1.5px;
+}
+
+p,
+span {
+  font-size: 16px;
+  font-family: 'Saira', sans-serif;
+}
+
+.submit {
+  cursor: pointer;
+  width: 25%;
+  margin: 20px auto;
+  padding: 10px auto;
+  transition: 0.2s ease-in-out;
+}
+
+.submit:hover {
+  background-color: var(--secondColor);
+  color: var(--thirdColor);
+  transform: scale(1.1git);
+}

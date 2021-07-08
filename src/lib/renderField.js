@@ -1,4 +1,5 @@
 import React from 'react';
+import '../css/Field.css';
 
 export const renderField = ({
   input,
@@ -7,10 +8,10 @@ export const renderField = ({
   min,
   max,
   step,
-  meta: { touched, error, warning },
+  meta: { touched, error },
 }) => (
-  <div>
-    <label>{label}</label>
+  <div className='field'>
+    <label className='field_label'>{label}</label>
     <div>
       <input
         {...input}
@@ -19,10 +20,9 @@ export const renderField = ({
         min={min}
         max={max}
         step={step}
+        className='field_input'
       />
-      {touched &&
-        ((error && <span>{error}</span>) ||
-          (warning && <span>{warning}</span>))}
+      {touched && error && <span className='err_message'>{error}</span>}
     </div>
   </div>
 );

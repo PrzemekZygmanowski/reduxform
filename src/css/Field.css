@@ -1,0 +1,39 @@
+:root {
+  --firstColor: rgba(250, 255, 250, 1);
+  --secondColor: #212121;
+  --thirdColor: #5cdaff;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 40%;
+  height: 80px;
+  margin-bottom: 15px;
+  font-family: 'Saira', sans-serif;
+  background-color: var(--firstColor);
+  padding: 5px 0;
+}
+
+.field_label,
+.field_input {
+  font-family: 'Saira', sans-serif;
+  background-color: var(--firstColor);
+  width: 200px;
+  padding: 5px 0;
+}
+
+.field_label:focus,
+.field_input:focus {
+  outline: none;
+}
+
+.field_input {
+  border: 1px solid var(--secondColor);
+}
+.err_message {
+  font-size: 12px;
+  color: red;
+}

@@ -2,6 +2,8 @@ import React from 'react';
 import PrimaryMenuForm from '../components/PrimaryMenuForm';
 import { SubmissionError } from 'redux-form';
 
+import '../css/Form.css';
+
 export const MenuForm = () => {
   const postValues = async (data) => {
     const endpoint = 'https://jsonplaceholder.typicode.com/posts';
@@ -15,7 +17,11 @@ export const MenuForm = () => {
     };
     fetch(endpoint, options)
       .then((res) => res.json())
-      .then((res) => console.log(res))
+      .then((res) =>
+        window.alert(
+          `Congratulations, You submitted:\n\n${JSON.stringify(res, null, 2)}`
+        )
+      )
       .catch((error) => {
         if (error.validationErrors) {
           throw new SubmissionError(error.validationErrors);
@@ -29,5 +35,9 @@ export const MenuForm = () => {
     postValues(values);
   };
 
-  return <PrimaryMenuForm onSubmit={handleSubmit} />;
+  return (
+    <div className='menu_container'>
+      <PrimaryMenuForm onSubmit={handleSubmit} />
+    </div>
+  );
 };
