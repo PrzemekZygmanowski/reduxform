@@ -3,13 +3,22 @@ import PrimaryMenuForm from '../components/PrimaryMenuForm';
 import { SubmissionError } from 'redux-form';
 import '../css/Form.css';
 
+const formatNumber = (d) => {
+  return d < 10 ? '0' + d.toString() : d.toString();
+};
+
 export const MenuForm = () => {
   const postValues = async (data) => {
     const endpoint = 'https://frosty-wood-6558.getsandbox.com:443/dishes';
 
     const valuesToSubmit = {
       name: data.name,
-      preparation_time: data.preparation_time,
+      preparation_time:
+        formatNumber(data.hours) +
+        ':' +
+        formatNumber(data.hours) +
+        ':' +
+        formatNumber(data.hours),
       type: data.type,
       no_of_slices: data.no_of_slices && +data.no_of_slices,
       diameter: data.diameter && +data.diameter,

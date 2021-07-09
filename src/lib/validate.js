@@ -3,15 +3,9 @@ export const validate = (values) => {
   if (!values.name) {
     errors.name = 'Sorry, You have to name your dish';
   }
-  if (!values.preparation_time) {
-    errors.preparation_time = 'Sorry, You have to set preparation time';
-  } else if (
-    values.preparation_time &&
-    !/^(?:(?:([01]?\d|2[0-3]):)?([0-5]?\d):)?([0-5]?\d)$/.test(
-      values.preparation_time
-    )
-  ) {
-    errors.preparation_time = 'Try HH:MM:SS';
+
+  if (!values.hours || !values.minutes || !values.seconds) {
+    errors.hours = 'Sorry, You have to set preparation time';
   }
 
   if (!values.type) {
