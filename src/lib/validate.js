@@ -4,8 +4,8 @@ export const validate = (values) => {
     errors.name = 'Sorry, You have to name your dish';
   }
 
-  if (!values.preparation_time) {
-    errors.preparation_time = 'Sorry, You have to set preparation time';
+  if (!values.hours || !values.minutes || !values.seconds) {
+    errors.hours = 'Sorry, You have to set preparation time';
   }
 
   if (!values.type) {
@@ -17,6 +17,8 @@ export const validate = (values) => {
   } else if (+values.no_of_slices > 10) {
     errors.no_of_slices =
       'Dividing a pizza into 10 pieces is already difficult enough ';
+  } else if (+values.no_of_slices === 0) {
+    errors.no_of_slices = '0 is not a pizza!';
   }
 
   if (!values.diameter) {
@@ -29,6 +31,9 @@ export const validate = (values) => {
     errors.slices_of_bread = "Don't be shy";
   } else if (+values.slices_of_bread > 4) {
     errors.slices_of_bread = '4 is such a beautiful number';
+  } else if (+values.slices_of_bread === 0) {
+    errors.no_of_slices = '0 is not a sandwich!';
   }
+
   return errors;
 };

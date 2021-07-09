@@ -9,7 +9,7 @@ export const SandwichInput = () => {
       component={renderField}
       label='Slices of bread'
       type='number'
-      min='0'
+      min='1'
       step='1'
     />
   );

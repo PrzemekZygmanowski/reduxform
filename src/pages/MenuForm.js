@@ -1,16 +1,35 @@
 import React from 'react';
 import PrimaryMenuForm from '../components/PrimaryMenuForm';
 import { SubmissionError } from 'redux-form';
-
 import '../css/Form.css';
+
+const formatNumber = (d) => {
+  return d < 10 ? '0' + d.toString() : d.toString();
+};
 
 export const MenuForm = () => {
   const postValues = async (data) => {
     const endpoint = 'https://jsonplaceholder.typicode.com/posts';
 
+    const valuesToSubmit = {
+      name: data.name,
+      time:
+        formatNumber(data.hours) +
+        'h : ' +
+        formatNumber(data.hours) +
+        'm : ' +
+        formatNumber(data.hours) +
+        's',
+      type: data.type,
+      no_of_slices: data.no_of_slices,
+      diameter: data.diameter,
+      spiciness_scale: data.spiciness_scale,
+      slices_of_bread: data.slices_of_bread,
+    };
+
     const options = {
       method: 'POST',
-      body: JSON.stringify(data),
+      body: JSON.stringify(valuesToSubmit),
       headers: {
         'Content-Type': 'application/json',
       },

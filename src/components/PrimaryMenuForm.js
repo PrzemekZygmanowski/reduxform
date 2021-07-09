@@ -17,18 +17,25 @@ let PrimaryMenuForm = (props) => {
   return (
     <form className='menu_form' onSubmit={handleSubmit}>
       <h1>Menu Form</h1>
-      <h2>Primary Fields</h2>
-      <NameInput />
-      <PreparationInput />
-      <TypeInput />
-      <h2>Additional Fields</h2>
-      {!hasTypeValue ? (
-        <h3>Please, choose the meal type</h3>
-      ) : (
-        (hasTypeValue === 'pizza' && <PizzaInput />) ||
-        (hasTypeValue === 'soup' && <SoupInput />) ||
-        (hasTypeValue === 'sandwich' && <SandwichInput />)
-      )}
+      <div className='form_container'>
+        <div className='form_item'>
+          <h2 className='form_item_title'>Primary information</h2>
+          <NameInput />
+          <PreparationInput />
+          <TypeInput />
+        </div>
+        <div className='form_item'>
+          <h2 className='form_item_title'>Additional information</h2>
+          {!hasTypeValue ? (
+            <h3>Please, choose the meal type</h3>
+          ) : (
+            (hasTypeValue === 'pizza' && <PizzaInput />) ||
+            (hasTypeValue === 'soup' && <SoupInput />) ||
+            (hasTypeValue === 'sandwich' && <SandwichInput />)
+          )}
+        </div>
+      </div>
+
       <div className='btn_wrapper'>
         <button className='btn primary_btn' type='submit' disabled={submitting}>
           Submit
@@ -54,6 +61,7 @@ PrimaryMenuForm = reduxForm({
 const selector = formValueSelector('menuForm');
 PrimaryMenuForm = connect((state) => {
   const hasTypeValue = selector(state, 'type');
+
   return {
     hasTypeValue,
   };
