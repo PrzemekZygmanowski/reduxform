@@ -18,4 +18,7 @@ This project was created to learn redux form library and build simlple form.
 ## APP:
 https://przemekzygmanowski.github.io/reduxform/
 
+## IMPORTANT
+App isn't responsive, the best way to run it is in the browser. I put adding mediaQueries to toDo list :)
+
 
