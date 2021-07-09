@@ -3,9 +3,15 @@ export const validate = (values) => {
   if (!values.name) {
     errors.name = 'Sorry, You have to name your dish';
   }
-
-  if (!values.hours || !values.minutes || !values.seconds) {
-    errors.hours = 'Sorry, You have to set preparation time';
+  if (!values.preparation_time) {
+    errors.preparation_time = 'Sorry, You have to set preparation time';
+  } else if (
+    values.preparation_time &&
+    !/^(?:(?:([01]?\d|2[0-3]):)?([0-5]?\d):)?([0-5]?\d)$/.test(
+      values.preparation_time
+    )
+  ) {
+    errors.preparation_time = 'Try HH:MM:SS';
   }
 
   if (!values.type) {
@@ -25,6 +31,10 @@ export const validate = (values) => {
     errors.diameter = "Don't be shy";
   } else if (+values.diameter > 60) {
     errors.diameter = "We don't have such large plates and pizza boxes";
+  }
+
+  if (+values.spiciness_scale > 10) {
+    errors.spiciness_scale = 'I strongly advise against such a choice';
   }
 
   if (!values.slices_of_bread) {
