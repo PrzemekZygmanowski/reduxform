@@ -1,11 +1,11 @@
 # REDUX_FORM PROJECT
 
-This project was created to learn redux form library and build simlple form.
+This project was created to learn redux form library and build simple form.
 
 ## Action required to run project
 1. `$git clone https://github.com/PrzemekZygmanowski/reduxform.git`
 2. `$yarn` - to instal depedencies
-3. `$yarn start` - tostart project on localhost:3000
+3. `$yarn start` - to start project on localhost:3000
 
 ## Stack:
 1. React
